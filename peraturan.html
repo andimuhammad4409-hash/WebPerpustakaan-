@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peraturan Peminjaman Buku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-utama">
+        <div class="teks-header">
+            <h1>Peraturan Peminjaman Buku</h1>
+            <p>Ketentuan lama peminjaman dan perhitungan denda di Perpustakaan Kampus.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="bagian-konten">
+            <h2>Batas Peminjaman dan Keringanan Denda</h2>
+            <p>Setiap kategori anggota memiliki batas waktu peminjaman dan persentase keringanan denda yang berbeda.</p>
+
+            <div class="tabel-responsif">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Kategori Anggota</th>
+                            <th>Batas Pinjam (Hari)</th>
+                            <th>Keringanan Denda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mahasiswa</td>
+                            <td>7</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr>
+                            <td>Dosen</td>
+                            <td>14</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td>Umum</td>
+                            <td>5</td>
+                            <td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="bagian-konten">
+            <h2>Ketentuan Umum Peminjaman</h2>
+            <ul class="daftar-ketentuan">
+                <li>Lama peminjaman dihitung berdasarkan jumlah hari peminjaman yang dimasukkan pada formulir.</li>
+                <li>Denda dikenakan apabila lama peminjaman melebihi batas waktu sesuai kategori anggota.</li>
+                <li>Denda akhir tidak boleh melebihi harga buku yang dipinjam.</li>
+                <li>Kategori anggota yang digunakan harus Mahasiswa, Dosen, atau Umum.</li>
+            </ul>
+        </div>
+
+        <div class="bagian-konten">
+            <h2>Rumus Perhitungan Denda</h2>
+            <ol class="daftar-rumus">
+                <li>Hari terlambat = nilai terbesar antara 0 dan (lama pinjam − batas pinjam kategori).</li>
+                <li>Denda dasar = hari terlambat × tarif denda per hari.</li>
+                <li>Keringanan = denda dasar × (persentase keringanan ÷ 100).</li>
+                <li>Denda akhir = nilai terkecil antara (denda dasar − keringanan) dan harga buku.</li>
+            </ol>
+        </div>
+
+        <p class="tautan-kembali">
+            <a href="index.html">Kembali ke Halaman Utama</a>
+        </p>
+    </main>
+
+    <footer>
+        <p>Pemrograman Web | Kelas C Informatika | 2026</p>
+    </footer>
+
+</body>
+  </html>
