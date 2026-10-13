@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f7fb;
+    color: #243447;
+    font-family: Arial, sans-serif ;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 24px;
+    background-color: #0f9b99;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.gambar-header {
+    width: 130px;
+    max-height: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+header h1,
+header p {
+    margin: 0;
+}
+
+main ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+main li a {
+    display: block;
+    padding: 20px;
+    background-color: white;
+    color: #123c69;
+    border: 1px solid #d7e0ea;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+main li a:hover {
+    background-color: #66f368;
+    border-color: #03424a;
+}
+
+
+main {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    flex: 1;
+}
+
+/*untuk tabel*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th {
+    background-color:#0f9b99 ;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #0e0e0e;
+}
+
+/*untuk select*/
+select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+/*untuk form*/
+form {
+    padding: 24px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+form p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 10px;
+    border: 0;
+    border-radius: 6px;
+    background-color: rgb(60, 244, 97);
+    color: rgb(245, 242, 239);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  rgb(5, 243, 53);
+}
+
+.btn-reset {
+    display: inline-block;
+    padding: 10px 13px;
+    text-decoration: none;
+    border: 0;
+    border-radius: 6px;
+    background-color: rgb(228, 111, 57);
+    color: rgb(245, 242, 239);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-reset:hover {
+    background-color: rgb(232, 84, 15);;
+}
+
+.kembali {
+    display: inline-block;
+    padding: 10px 13px;
+    text-decoration: none;
+    border: 0;
+    border-radius: 6px;
+    background-color: rgb(7, 177, 189);
+    color: rgb(245, 242, 239);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.kembali:hover {
+    background-color: rgb(7, 172, 158);;
+}
+
+/*untuk profil*/
+.form-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    padding: 30px;
+    margin: 20px;
+    background-color: rgb(207, 214, 219);
+    border: 3px solid rgb(5, 113, 206);
+    border-radius: 10px;
+}
+
+.foto-profil {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+dl {
+    margin: 0;
+}
+
+dd {
+    font-weight: bold;
+    color: #123c69;
+}
+
+dt {
+    margin: 0 0 14px 0;
+}
+
+.dua-kolom {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 8fr 9fr;
+    gap: 20px;
+}
+
+.keterangan {
+    padding: 20px;
+    background-color:  #e6f7f7;
+    border: 1px solid #021182;
+    border-radius: 10px;
+}
+
+.keterangan h3 {
+    margin-top: 0;
+}
+
+.hasil {
+    margin: 20px;
+    padding: 20px;
+    background-color: #e6f7f7;
+    border-left: solid 6px rgb(82, 243, 255);
+    border-radius: 10px;
+}
+
+.hasil h3 {
+    margin-top: 0;
+}
+
+@media (max-width :700px) {
+    header {
+        display: block;
+    }
+
+    .gambar-header {
+        width: 100%;
+        max-height: 160px;
+        height: auto;
+        margin-bottom: 12px;
+    }
+
+    main ol, .profil-card, .dua-kolom, .form-dua-kolom {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*footer*/
+footer {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #0f9b99;
+    color: white;
+    text-align: center;
+}
