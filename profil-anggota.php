@@ -1,9 +1,4 @@
-<?php 
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
+<?php
     $pesan = "";
     $dataLengkap = false;
 
@@ -32,7 +27,7 @@
             $dataLengkap = true;
         }
     } else {
-        $pesan = "silahkan isi formulis anggota terlebih dahulu";  
+        $pesan = "silahkan isi formulis anggota terlebih dahulu";
     }
 ?>
 
@@ -78,13 +73,12 @@
         <?php endif; ?>
         <br>
 
-        <a class="kembali" href="form-anggota.html">kembali ke pengisian formulir</a> | 
+        <a class="kembali" href="form-anggota.html">kembali ke pengisian formulir</a> |
         <a class="kembali" href="index.html">kembali ke halaman utama</a>
     </main>
 
     <footer>
-        <p>Pemrograman Web &middot; Kelas C &middot; @2026</p>
+        <p>Pemrograman web kelas c 2026</p>
     </footer>
 </body>
 </html>
-
