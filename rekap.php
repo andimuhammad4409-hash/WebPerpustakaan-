@@ -1,4 +1,4 @@
-<?php 
+<?php
     function aturan_kategori($kategori) {
         $aturan = [
             "mahasiswa" => ["batas" => 7, "keringanan" => 50],
@@ -106,7 +106,11 @@
                     $buku_tepat_waktu++;
                 }
 
+                date_default_timezone_set('Asia/Makassar');
+                $waktu_proses = date("d-m-Y H:i") . " WITA";
+
                 $daftar_hasil[] = [
+                    "waktu_proses" => $waktu_proses,
                     "nomor" => $nomor_baris,
                     "judul" => htmlspecialchars($judul_validasi),
                     "pinjam" => $pinjam_validasi,
@@ -122,7 +126,7 @@
                 if ($total_buku > 0) {
                     $rata_rata_denda = $total_denda / $total_buku;
                 }
-            }   
+            }
 
         }
     }
@@ -139,7 +143,7 @@
 </head>
 <body>
     <header>
-        
+        <img class="gambar-header" src="img/gambar.png" alt="logo perpus">
         <div>
             <h2>Rekap Peminjaman</h2>
         </div>
@@ -162,6 +166,7 @@
                 <p>
                     <label for="kategori">Kategori Anggota : </label>
                         <select name="kategori" id="kategori">
+                            <option value="">-- Pilih kategori --</option>
                             <option value="mahasiswa" <?php echo (($_POST["kategori"] ?? "" ) === "mahasiswa") ? "selected" : ""; ?>>Mahasiswa</option>
                             <option value="dosen" <?php echo (($_POST["kategori"] ?? "" ) === "dosen") ? "selected" : ""; ?>>Dosen</option>
                             <option value="umum" <?php echo (($_POST["kategori" ] ?? "" ) === "umum") ? "selected" : ""; ?>>Umum</option>
@@ -200,13 +205,13 @@
                     <p>
                         <label>Lama pinjam : </label><br>
                         <input type="number" name="pinjam[]" required>
-                        
+
                     </p>
 
                     <p>
                         <label>Harga buku : </label><br>
                         <input type="number" name="harga[]" step="any" min="0" required>
-                        
+
                     </p>
 
                     <?php if($i < $jumlah_buku) : ?>
@@ -250,14 +255,16 @@
                 <li>jumlah buku terlambat : <?php echo $buku_terlambat; ?></li>
                 <li>jumlah buku tepat waktu : <?php echo $buku_tepat_waktu; ?></li>
                 <li>rata-rata denda per buku : <?php echo rupiah($rata_rata_denda); ?></li>
+                <li>Waktu pemrosesan :  <?php echo $waktu_proses ?></li>
             </ul>
 
-            <a href="rekap.php">mulai rekap baru</a>
+            <a class="btn-reset" href="rekap.php">mulai rekap baru</a><br><br>
+            <a class="kembali" href="index.html">Kembali ke halaman utama</a>
         <?php endif; ?>
     </main>
 
     <footer>
-        <p>Oemrogramana web kelas c 2026</p>
+        <p>Pemrogramana web kelas c 2026</p>
     </footer>
 </body>
 </html>
