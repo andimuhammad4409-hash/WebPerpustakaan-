@@ -1,8 +1,4 @@
-<?php 
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+<?php
 
     function aturan_kategori($kategori) {
         $aturan = [
@@ -55,13 +51,20 @@
 
             if ($hari_terlambat == 0) {
                 $status = "tepat waktu";
+                $kelas_status = "tepat";
             } elseif ($denda_setelah_keringanan > $harga) {
                 $status = "terlambat, denda di batasi harga buku";
+                $kelas_status = "dibatasi";
             } else {
                 $status = "terlambat";
+                $kelas_status = "terlambat";
             }
 
+            date_default_timezone_set('Asia/Makassar');
+            $waktu_proses = date("d-m-Y H:i") . " WITA";
+
             $hasil = [
+                "waktu_proses" => $waktu_proses,
                 "nama" => htmlspecialchars($nama),
                 "buku" => htmlspecialchars($buku),
                 "kategori" => ucfirst($kategori),
@@ -71,7 +74,8 @@
                 "denda_dasar" => $denda_dasar,
                 "keringanan" => $keringanan,
                 "denda_akhir" => $denda_akhir,
-                "status" => $status
+                "status" => $status,
+                "kelas_status" => $kelas_status
             ];
         }
     }
@@ -101,16 +105,17 @@
                     <label for="nama">Nama Pemimjam :</label>
                     <input type="text" id="nama" name="nama" value="<?php echo htmlspecialchars($_POST["nama"] ?? ""); ?>" required>
                 </p>
-                
+
 
                 <p>
                     <label for="buku">Judul Buku  :</label>
                     <input type="text" id="buku" name="buku" value="<?php echo htmlspecialchars($_POST["buku"] ?? ""); ?>" required>
                 </p>
-                
+
                 <p>
                     <label for="kategori">Kategori Anggota : </label>
                         <select name="kategori" id="kategori">
+                            <option value="">-- Pilih kategori --</option>
                             <option value="mahasiswa" <?php echo (($_POST["kategori"] ?? "" ) === "mahasiswa") ? "selected" : ""; ?>>Mahasiswa</option>
                             <option value="dosen" <?php echo (($_POST["kategori"] ?? "" ) === "dosen") ? "selected" : ""; ?>>Dosen</option>
                             <option value="umum" <?php echo (($_POST["kategori" ] ?? "" ) === "umum") ? "selected" : ""; ?>>Umum</option>
@@ -135,7 +140,7 @@
 
                 <button type="submit">kirim</button>
                 <a href="denda.php" class="btn-reset">reset</a>
-                
+
             </form>
 
             <div class="keterangan">
@@ -181,8 +186,8 @@
                 </div>
         </div>
 
-        
-        
+
+
             <?php if($pesan !== null) : ?>
                 <div class="hasil">
                     <h3>pesan kesalahan</h3>
@@ -202,18 +207,23 @@
                     <p>Denda Dasar : <?php echo rupiah($hasil["denda_dasar"]); ?></p>
                     <p>Keringanan : <?php echo rupiah($hasil["keringanan"]); ?></p>
                     <p>Denda Akhir : <?php echo rupiah($hasil["denda_akhir"]); ?></p>
-                    <p>Status : <?php echo $hasil["status"]; ?></p>
+                    <p>Waktu Pemrosesan : <?php echo $hasil["waktu_proses"]; ?></p>
+                    <p>
+                        Status :
+                        <span class="<?php echo $hasil["kelas_status"]; ?>">
+                            <?php echo $hasil["status"]; ?>
+                        </span>
+                    </p>
                 </div>
             <?php endif ; ?>
-        
+
 
         <a class="kembali" href="index.html">Kembali ke halaman utama</a>
-        
+
     </main>
 
     <footer>
         <p>Pemrograman web kelas c 2026</p>
     </footer>
-    
+
 </body>
-</html>
