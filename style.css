@@ -250,6 +250,38 @@ dt {
     }
 }
 
+
+.tepat,
+.terlambat,
+.dibatasi {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+
+.tepat {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+
+.terlambat {
+    background-color: #fff3cd;
+    color: #664d03;
+    border: 1px solid #ffecb5;
+}
+
+
+.dibatasi {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
 /*footer*/
 footer {
     margin-top: 10px;
